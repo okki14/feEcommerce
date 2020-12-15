@@ -1,0 +1,9 @@
+.admin{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    margin-top: 20%;
+}
+.inven{
+    padding-right: 10;
+}

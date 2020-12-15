@@ -1,0 +1,20 @@
+.table{
+    display: flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap: wrap;
+}
+.detail-img{
+    flex:  40rem;
+}
+.detail-img img{
+    max-width: 60rem;
+    widows: 100%;
+}
+.detailbarang{
+    border: .1rem #808080 solid;
+    border-radius: 0.5rem;
+    background-color:antiquewhite;
+    padding: 1rem;
+    
+}
