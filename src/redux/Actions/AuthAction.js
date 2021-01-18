@@ -50,6 +50,7 @@ export const LogOutfunc=()=>{
         
 //          }
 // }
+
 export const LoginThunk=(username,password)=>{
     return (dispatch)=>{
         dispatch({type:'LOADING'})
@@ -60,10 +61,17 @@ export const LoginThunk=(username,password)=>{
         .then((res)=>{
             console.log(res.data);
             localStorage.setItem('id',res.data.datauser.id)
+            // localStorage.setItem('datauser',JSON.stringify(res.data) )
             dispatch({type:'LOGIN',payload:res.data.datauser,cart:res.data.cart})//backend
         }).catch((err)=>{
             dispatch({type:'Error',payload:err.response.data.message})
         })
         
+    }
+}
+export const verifiedaction=(data)=>{
+    return {
+        type:'LOGIN',
+        payload:data
     }
 }

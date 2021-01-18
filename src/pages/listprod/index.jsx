@@ -24,10 +24,10 @@ class Product extends Component {
      rederCart=()=>{
          return this.state.barang.map((val,index)=>{
              return(
-                <div key={val.id} className="col-md-3" style={{paddingTop:7}}>
+                <div key={val.id} className="col-md-4" style={{paddingTop:7}}>
                     <Link to={'/products/'+val.id}>
-                        <Card class="productimage">
-                            <CardImg top width="100%" height={200}  src={API_URLbe +val.banner} />
+                        <Card className="productimage">
+                            <CardImg top width="50%" height={200}  src={API_URLbe +val.banner} />
                             <div style={{fontWeight:"bold"}}>
                                 {val.namaprod}
                             </div>
@@ -46,6 +46,9 @@ class Product extends Component {
             <div className="px-4" style={{paddingTop:"5%"}}>
                 <Header />
                 <div>
+                    <h1>
+                        dawdafawfa
+                    </h1>
                     <div className="row p-0 m-0">
                         {this.rederCart()}
                     </div>

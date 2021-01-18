@@ -1,8 +1,19 @@
-.register-kotak{
+/* .register-kotak{
     width: 50%;
     border: whitesmoke 5px solid;
     height:55%;
     border-radius: 20px;
     color: whitesmoke;
     flex-direction: column;
+} */
+
+.register-kotak{
+    width: 50%;
+    border:  6px solid  #9e354e;
+    height:55%;
+    border-radius: 20px;
+    color:black;
+    flex-direction: column;
+    
+    
 }

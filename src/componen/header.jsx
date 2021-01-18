@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   warna:{
-    background: 'linear-gradient(45deg, #b5b7ab 30%, #606b78 90%)'
+    background: 'linear-gradient(45deg,#9e354e 30%,#421517 90%)'
   }
 }));
 const StyledBadge = withStyles(() => ({
@@ -74,7 +74,7 @@ function ButtonAppBar({username,isLogin,role,cart,LogOutfunc}) {
                     </IconButton>
                 </NavLink> 
               <Typography variant="h6" className={classes.title}>
-                Toko Obat Engkong
+                Toko Obat CARHO
               </Typography>
                 {
                   role=='admin'?
@@ -83,14 +83,15 @@ function ButtonAppBar({username,isLogin,role,cart,LogOutfunc}) {
                   </Link>
                   :
                   role=='user'?
-                  <Link to='/kerjanjang' style={{textDecoration:'none',color:'white'}}>
+                  <Link to='/keranjang' style={{textDecoration:'none',color:'white'}}>
                     <Button  color="inherit">
                       <StyledBadge  color='secondary' >
                         <span style={{fontSize:20}}>
                           <FaCartArrowDown />
                         </span>
                       </StyledBadge>
-                    </Button>                      
+                    </Button>            
+                    
                   </Link>
                   :
                   null
@@ -108,7 +109,7 @@ function ButtonAppBar({username,isLogin,role,cart,LogOutfunc}) {
                         >
                           <MenuItem >Profile</MenuItem>
                             <MenuItem >My account</MenuItem>
-                            <Link to='/' style={{textDecoration:'none',color:'#ff8f54'}}>
+                            <Link to='/' style={{textDecoration:'none',color:'red'}}>
                               <MenuItem onClick={Logoutclik} >Logout</MenuItem>  
                             </Link>
                         </Menu>

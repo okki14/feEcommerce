@@ -15,6 +15,8 @@ import { LoginThunk, LoginFunc} from './redux/Actions/AuthAction'
 import Axios from 'axios'
 import {API_URLbe} from './helpers/idrformat'
 import Loading from './componen/loading'
+import Verified from './pages/verified/verifiedakun';
+import Sendverified from './pages/verified/sendverified';
 
 
 function App(props) {
@@ -48,12 +50,14 @@ function App(props) {
           <Route exact path= '/' exact component={Home} />
           <Route exact path= '/login' component={Login} />
           <Route exact path= '/register' component={Register} />
+          <Route exact path= '/verified' component={Verified} />
           <Route exact path= '/products' component={Product} />
           <Route  path= '/products/:id' component={DetailProduct}/>
           <Route path= '/keranjang' component={Cart} />
           <Route exact path='/admin' component={Admin}/>
           <Route exact path='/adminprod' component={AdminProd}/>
           <Route exact path='/admininvetori' component={AdminInven}/>
+          <Route exact path= './sendverified' component={Sendverified} />
         </Switch>
     
     </div>

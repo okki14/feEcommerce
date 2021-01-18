@@ -37,7 +37,7 @@ function AdminProduct(props) {
     const [addresep,setresep]=useState([
       {
         dosis:'',
-        kimiaid:'1'
+        kimia_id:'1'
       }
     ])
 
@@ -134,7 +134,8 @@ const OnAdddataClick=()=>{
 
 const addresepClick=()=>{
   var oldarr=addresep
-  oldarr=[...oldarr,{kimiaid:'1',dosis:''}]
+  console.log(oldarr);
+  oldarr=[...oldarr,{kimia_id:'1',dosis:''}]
   setresep([...oldarr])
 }
 
@@ -142,7 +143,7 @@ const renderbahankimia=()=>{
   return addresep.map((val,index)=>{
     return(
       <>
-      <select className="form-control" value={val.kimiaid} onChange={(e)=>onResepkimiaChange(e,index)}> {renderkimia()} </select>
+      <select className="form-control" value={val.kimia_id} onChange={(e)=>onResepkimiaChange(e,index)}> {renderkimia()} </select>
       <input type='number' value={val.dosis} onChange={(e)=>onResepdosisChange(e,index)}  placeholder='Masukkan Nama dosis' className='form-control mb-2'/>
       </>
     )
@@ -152,7 +153,7 @@ const renderbahankimia=()=>{
 //manggil input
 const onResepkimiaChange=(e,index)=>{
   var oldarr=addresep
-  oldarr[index]={...oldarr[index],kimiaid:e.target.value}
+  oldarr[index]={...oldarr[index],kimia_id:e.target.value}
   setresep([...oldarr])
 }
 const onResepdosisChange=(e,index)=>{
@@ -164,7 +165,7 @@ const saveClick=()=>{
   console.log(addresep)
   setModal1(!modal1)
   setresep([{
-    kimiaid:'',
+    kimia_id:'',
     dosis:''
   }])
 }

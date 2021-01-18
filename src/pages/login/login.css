@@ -1,8 +1,11 @@
-.login-kotak{
-    width: 50%;
-    border: whitesmoke 5px solid;
-    height:55%;
-    border-radius: 20px;
-    color: whitesmoke;
-    flex-direction: column;
+.backhome{
+    border: transparent !important;
+    padding-left: 97%;
+    font-size: 35;
+    font-weight:bolder;
+    background-color: whitesmoke;
+}
+.backhome.hover{
+    border: none;
+    background-color: whitesmoke;
 }

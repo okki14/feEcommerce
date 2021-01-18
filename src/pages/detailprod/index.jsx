@@ -7,8 +7,8 @@ import {connect} from 'react-redux'
 import {AddcartAction} from './../../redux/Actions/AuthAction'
 import { API_URLbe } from '../../helpers/idrformat';
 import ButtonUi from '../../componen/button'
+import Spin from 'react-reveal/Spin';
 import './detailprod.css'
-import {toast} from 'react-toastify'
 
 class DetailProduct extends Component {
     state = { 
@@ -32,16 +32,15 @@ class DetailProduct extends Component {
 
     onAddToCart=()=>{
         if(this.props.role==='admin'){
-            alert('Anda terdaftar sebagai ADMIN')
+            alert('Anda terdaftar sebagai Admin')
         }else if(this.props.role==='user'){
             if(this.state.qty.current.value){
-                
-                Axios.post(`${API_URLbe}/trans/cart`,{                   
+                Axios.post(`${API_URLbe}/trans/cart`,{
                     userid:this.props.id,
                     productid:this.state.barang.id,
                     qty:this.state.qty.current.value
-                }).then((res)=>{    
-                    console.log('adawdaw');              
+               
+                }).then((res)=>{
                     this.props.AddcartAction(res.data)
                     alert('berhasil masuk cart')
                 }).catch((err)=>{
@@ -49,15 +48,7 @@ class DetailProduct extends Component {
                     alert(err)
                 })
             }else{
-                toast('salah broo harusnya qty disii', {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
+               alert("Belum ada isi Cart")
             }
         }else{
             this.setState({isOpen:true})
@@ -81,7 +72,7 @@ class DetailProduct extends Component {
             <div>
                 <Modal isOpen={isOpen} toggle={()=>this.setState({isOpen:false})} style={{paddingTop:"3%"}}>
                     <ModalBody>
-                        Login terlebih dahulu
+                       Lakukan Login terlebih dahulu
                     </ModalBody>
                     <ModalFooter>
                         <ButtonUi onClick={this.onRedirecttoLogin}>
@@ -95,20 +86,29 @@ class DetailProduct extends Component {
                     <BreadcrumbItem ><Link className='link-class' to="/products">Products</Link></BreadcrumbItem>
                     <BreadcrumbItem active >{this.state.barang.namaprod}</BreadcrumbItem>
                 </Breadcrumb>
-                <div className="table row pl-5">                    
-                        <div  className="detail-img col-md-6 ">
-                            <img src={API_URLbe + barang.banner}  height='10%' width='50%' alt={"foto"}/>
+                    <Spin>
+                    <div className= "app"  >
+                        <div className="table">                    
+                                <div  className="detail-img  ">
+                                    <img src={API_URLbe + barang.banner}  height='10%' width='50%' alt={"foto"}/>
+                                </div>
+                                <div className="detailbarang " >
+                                    <h1>Nama Obat : {barang.namaprod}</h1>
+                                    <h1>Harga     : {barang.harga}</h1>
+                                    <input type="number" className={'form-control mt-3'} placeholder='Quantity' style={{width:200}} ref={this.state.qty}/>
+                                    <button className='mt-3'
+                                            onClick={this.onAddToCart}
+                                            style={{border:'black 1px solid',backgroundColor:"teal ", color:"white"}}
+                                    >
+                                        Add to cart
+                                    </button>
+                                </div>
+                            
                         </div>
-                        <div className="detailbarang col-md-6" style={{marginRight:"5%", width:10}}    >
-                            <h1 style={{fontSize:30}}>Nama Obat : {barang.namaprod}</h1>
-                            <h1 style={{fontSize:30}}>Harga     : {barang.harga}</h1>
-                            <input type="number" className={'form-control'} placeholder='Quantity' style={{width:200}} ref={this.state.qty}/>
-                            <ButtonUi className='mt-2' onClick={this.onAddToCart}>
-                                Add to cart
-                            </ButtonUi>
-                        </div>
-                    
-                </div>
+
+                    </div>
+                    </Spin>
+         
             </div>
 
          );
